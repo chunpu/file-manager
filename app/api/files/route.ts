@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-const ROOT_DIR = process.cwd();
+const ROOT_DIR = process.env.FILE_MANAGER_ROOT || process.cwd();
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

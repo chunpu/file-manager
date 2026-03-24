@@ -1,6 +1,6 @@
 # File Manager
 
-这是一个基于 Next.js 的文件管理器项目。
+这是一个基于 Next.js 的文件管理器项目，可以通过 CLI 快速启动。
 
 ## 项目作用
 
@@ -29,23 +29,45 @@
 
 ## 使用方法
 
-### 安装依赖
+### 快速启动（推荐）
+
+你可以通过 npx 直接运行，无需安装：
 
 ```bash
+# 使用当前工作目录
+npx file-manager
+
+# 指定目录
+npx file-manager /path/to/directory
+npx file-manager .
+```
+
+### 本地安装使用
+
+```bash
+# 全局安装
+npm install -g file-manager
+
+# 启动
+file-manager
+# 或
+file-manager /path/to/directory
+```
+
+### 项目开发
+
+如果你想直接在项目中开发：
+
+```bash
+# 安装依赖
 npm install
-```
 
-### 开发模式
-
-```bash
+# 开发模式
 npm run dev
-```
 
-然后在浏览器中打开 `http://localhost:3000`
+# 然后在浏览器中打开 http://localhost:3000
 
-### 构建生产版本
-
-```bash
+# 构建生产版本
 npm run build
 npm start
 ```
