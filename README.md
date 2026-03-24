@@ -35,30 +35,30 @@
 
 ```bash
 # 使用当前工作目录
-npx @ftft1885/file-manager
+npx web-file-manager
 
 # 指定目录
-npx @ftft1885/file-manager /path/to/directory
-npx @ftft1885/file-manager .
+npx web-file-manager /path/to/directory
+npx web-file-manager .
 
 # 指定端口
-npx @ftft1885/file-manager -p 8080
-npx @ftft1885/file-manager --port 8080
+npx web-file-manager -p 8080
+npx web-file-manager --port 8080
 
 # 指定目录和端口
-npx @ftft1885/file-manager -p 8080 /path/to/directory
+npx web-file-manager -p 8080 /path/to/directory
 ```
 
 ### 查看帮助
 ```bash
-npx @ftft1885/file-manager --help
+npx web-file-manager --help
 ```
 
 ### 本地安装使用
 
 ```bash
 # 全局安装
-npm install -g @ftft1885/file-manager
+npm install -g web-file-manager
 
 # 启动
 file-manager

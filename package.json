@@ -1,6 +1,6 @@
 {
-  "name": "@ftft1885/file-manager",
-  "version": "0.1.0",
+  "name": "web-file-manager",
+  "version": "0.1.1",
   "description": "A web-based file manager that can be run via npx",
   "main": "bin/start-server.js",
   "bin": {
