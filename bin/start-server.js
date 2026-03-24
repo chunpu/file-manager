@@ -5,7 +5,7 @@ const { spawn } = require('child_process');
 const { program } = require('commander');
 
 program
-  .name('file-manager')
+  .name('web-file-manager')
   .description('A web-based file manager')
   .version('0.1.0')
   .option('-p, --port <number>', 'Port to run the server on', '3000')

@@ -1,10 +1,10 @@
 {
   "name": "web-file-manager",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A web-based file manager that can be run via npx",
   "main": "bin/start-server.js",
   "bin": {
-    "file-manager": "./bin/start-server.js"
+    "web-file-manager": "./bin/start-server.js"
   },
   "private": false,
   "publishConfig": {

@@ -61,16 +61,16 @@ npx web-file-manager --help
 npm install -g web-file-manager
 
 # 启动
-file-manager
+web-file-manager
 # 或
-file-manager /path/to/directory
+web-file-manager /path/to/directory
 
 # 指定端口
-file-manager -p 8080
-file-manager --port 8080
+web-file-manager -p 8080
+web-file-manager --port 8080
 
 # 查看帮助
-file-manager --help
+web-file-manager --help
 ```
 
 ### 项目开发
