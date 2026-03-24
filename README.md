@@ -35,23 +35,42 @@
 
 ```bash
 # 使用当前工作目录
-npx file-manager
+npx @ftft1885/file-manager
 
 # 指定目录
-npx file-manager /path/to/directory
-npx file-manager .
+npx @ftft1885/file-manager /path/to/directory
+npx @ftft1885/file-manager .
+
+# 指定端口
+npx @ftft1885/file-manager -p 8080
+npx @ftft1885/file-manager --port 8080
+
+# 指定目录和端口
+npx @ftft1885/file-manager -p 8080 /path/to/directory
+```
+
+### 查看帮助
+```bash
+npx @ftft1885/file-manager --help
 ```
 
 ### 本地安装使用
 
 ```bash
 # 全局安装
-npm install -g file-manager
+npm install -g @ftft1885/file-manager
 
 # 启动
 file-manager
 # 或
 file-manager /path/to/directory
+
+# 指定端口
+file-manager -p 8080
+file-manager --port 8080
+
+# 查看帮助
+file-manager --help
 ```
 
 ### 项目开发
