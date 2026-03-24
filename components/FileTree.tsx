@@ -1,7 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ChevronRight, ChevronDown, Folder, FileText, FileCode, FileJson, FileImage } from 'lucide-react';
+import {
+  ChevronRight,
+  ChevronDown,
+  Folder,
+  FileText,
+  FileCode,
+  FileJson,
+  FileImage,
+} from 'lucide-react';
 
 export interface FileItem {
   name: string;
@@ -29,7 +37,12 @@ async function fetchFiles(path: string): Promise<FileItem[]> {
   return res.json();
 }
 
-function FileTreeNode({ file, onFileSelect, selectedFilePath, level }: FileTreeNodeProps) {
+function FileTreeNode({
+  file,
+  onFileSelect,
+  selectedFilePath,
+  level,
+}: FileTreeNodeProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [children, setChildren] = useState<FileItem[]>([]);
@@ -57,7 +70,7 @@ function FileTreeNode({ file, onFileSelect, selectedFilePath, level }: FileTreeN
 
   const getFileIcon = () => {
     if (file.type === 'folder') {
-      return isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />;
+      return <Folder size={16} className="text-yellow-500" />;
     }
     switch (file.fileType) {
       case 'code':
@@ -76,26 +89,37 @@ function FileTreeNode({ file, onFileSelect, selectedFilePath, level }: FileTreeN
   return (
     <div>
       <div
-        className={`flex items-center gap-2 px-2 py-1.5 cursor-pointer transition-colors ${
-          isSelected 
-            ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300' 
+        className={`flex items-center px-2 py-1.5 cursor-pointer transition-colors ${
+          isSelected
+            ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
             : 'hover:bg-gray-100 dark:hover:bg-gray-800'
         }`}
-        style={{ paddingLeft: `${level * 16 + 8}px` }}
         onClick={handleSelect}
       >
+        <div style={{ width: `${level * 16}px` }} />
         {file.type === 'folder' && (
-          <span onClick={handleToggle} className="flex items-center">
-            {isLoading ? <span className="w-4 h-4 animate-spin rounded-full border-2 border-gray-300 border-t-gray-600" /> : getFileIcon()}
-          </span>
+          <>
+            <span onClick={handleToggle} className="flex items-center w-4 h-4">
+              {isExpanded ? (
+                <ChevronDown size={16} />
+              ) : (
+                <ChevronRight size={16} />
+              )}
+            </span>
+            <span className="w-4 h-4 flex items-center">{getFileIcon()}</span>
+          </>
         )}
-        {file.type === 'file' && getFileIcon()}
-        {file.type === 'folder' && <Folder size={16} className="text-yellow-500" />}
-        <span className="text-sm truncate">{file.name}</span>
+        {file.type === 'file' && (
+          <>
+            <span className="w-4 h-4 flex items-center" />
+            <span className="w-4 h-4 flex items-center">{getFileIcon()}</span>
+          </>
+        )}
+        <span className="ml-2 text-sm truncate">{file.name}</span>
       </div>
       {file.type === 'folder' && isExpanded && (
         <div>
-          {children.map((child) => (
+          {children.map(child => (
             <FileTreeNode
               key={child.path}
               file={child}
@@ -110,7 +134,10 @@ function FileTreeNode({ file, onFileSelect, selectedFilePath, level }: FileTreeN
   );
 }
 
-export default function FileTree({ onFileSelect, selectedFilePath }: FileTreeProps) {
+export default function FileTree({
+  onFileSelect,
+  selectedFilePath,
+}: FileTreeProps) {
   const [rootFiles, setRootFiles] = useState<FileItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -129,7 +156,7 @@ export default function FileTree({ onFileSelect, selectedFilePath }: FileTreePro
 
   return (
     <div className="overflow-y-auto h-full">
-      {rootFiles.map((file) => (
+      {rootFiles.map(file => (
         <FileTreeNode
           key={file.path}
           file={file}
